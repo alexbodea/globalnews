@@ -1,8 +1,10 @@
 <?php 
 
 include('config.php');
-include('locale.php');
+include('modules/translate/translate.php');
+include('modules/db/db.php');
 include('admin/functions.php');
+
 
 $json = file_get_contents('http://freegeoip.net/json/gandul.info');
 $geoip  = json_decode($json);

@@ -39,9 +39,9 @@
         <a class="logo" href="#" title="Keywords for this">World News</a>
         <nav data-role="main_menu">
             <button><span></span><span></span><span></span></button>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][0];?></a>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][1];?></a>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][2];?></a>
+            <a href="#" title="keywords for this"><?php echo translate('Home',$countryslug);?></a>
+            <a href="#" title="keywords for this"><?php echo translate('Country',$countryslug);?></a>
+            <a href="#" title="keywords for this"><?php echo translate('About',$countryslug);?></a>
         </nav>
     </header>
 
@@ -50,8 +50,6 @@
         <div class="row">
             <div class="col-xs-12">
             <?php
-
-			include('admin/db.php');
 
 			$country_id = getcid($countryslug);
 			$sql = "SELECT * FROM news WHERE country_id='$country_id' ORDER BY pubdate DESC";
@@ -64,7 +62,7 @@
                     <h2><a href="'.$row["link"].'" title="keywords for this">'.$row["title"].'</a></h2>
                     <i class="fa fa-clock-o"></i><span class="extra">'.$row["pubdate"].'</span>
                     <i class="fa fa-link"></i><a class="extra" href="#" title="keyword for this">'.$row["author"].'</a>
-                    <p>'.html_entity_decode(readmore($row["description"],$countryslug,$row["title"])).'</p>
+                    <p>'.$row["description"].'<a href="/'.$countryslug.'/'.urlencode($row["title"]).'">'.translate('Read more',$countryslug).'</a></p>
                 </section>';
 			}
 
@@ -88,7 +86,7 @@
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
