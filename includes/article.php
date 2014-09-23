@@ -44,37 +44,10 @@
             <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][2];?></a>
         </nav>
     </header>
+<?php
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-            <?php
-
-			include('admin/db.php');
-
-			$country_id = getcid($countryslug);
-			$sql = "SELECT * FROM news WHERE country_id='$country_id' ORDER BY pubdate DESC";
-			$res = mysqli_query($con,$sql);
-			$html = '';
-
-			while($row = mysqli_fetch_array($res)) {
-				
-				$html .= '<section class="news">
-                    <h2><a href="'.$row["link"].'" title="keywords for this">'.$row["title"].'</a></h2>
-                    <i class="fa fa-clock-o"></i><span class="extra">'.$row["pubdate"].'</span>
-                    <i class="fa fa-link"></i><a class="extra" href="#" title="keyword for this">'.$row["author"].'</a>
-                    <p>'.html_entity_decode(readmore($row["description"],$countryslug,$row["title"])).'</p>
-                </section>';
-			}
-
-			echo $html;
-
-			?>
-		    </div>
-        </div>
-    </div>
-
+echo urldecode($article_title);
+?>
 
     <footer>
         <div class="row">
