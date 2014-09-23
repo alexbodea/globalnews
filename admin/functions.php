@@ -2,7 +2,8 @@
 
 
 function getslug($country) {
-	include(M_PATH.'/admin/db.php');
+	
+	global $con;
 
 	$sql = "SELECT slug FROM slugs WHERE country = '$country'";
 	$res = mysqli_query($con,$sql);
@@ -15,7 +16,7 @@ function getslug($country) {
 
 function getcid($country) {
 
-	include(M_PATH.'/admin/db.php');
+	global $con;
 
 	$sql = "SELECT id FROM slugs WHERE country = '$country' OR slug = '$country'";
 	$res = mysqli_query($con,$sql);
@@ -26,7 +27,7 @@ function getcid($country) {
 	return $cid;
 }
 
-function readmore($post,$countryslug,$url) {
+/*function readmore($post,$countryslug,$url) {
 
 	include(M_PATH.'/locale.php');
 	$words = explode(' ',$post);
@@ -38,7 +39,7 @@ function readmore($post,$countryslug,$url) {
 	}
 	$post_final = $post_limited.'.... <a href="/'.$countryslug.'/'.urlencode($url).'">'.$READMORE[$countryslug].'</a>';
 	return $post_final;
-}
+}*/
 
 function strip_tags_content($text, $tags = '', $invert = FALSE) {
 
