@@ -39,14 +39,20 @@
         <a class="logo" href="#" title="Keywords for this">World News</a>
         <nav data-role="main_menu">
             <button><span></span><span></span><span></span></button>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][0];?></a>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][1];?></a>
-            <a href="#" title="keywords for this"><?php echo $MENU[$countryslug][2];?></a>
+            <a href="#" title="keywords for this"><?php echo translate('Home',$countryslug);?></a>
+            <a href="#" title="keywords for this"><?php echo translate('Country',$countryslug);?></a>
+            <a href="#" title="keywords for this"><?php echo translate('About',$countryslug);?></a>
         </nav>
     </header>
 <?php
 
-echo urldecode($article_title);
+$article_title= urldecode($article_title);
+$sql = "SELECT link FROM news WHERE title = '$article_title'";
+$res = mysqli_query($con,$sql);
+while($row = mysqli_fetch_array($res)){
+
+    /*echo 'linkul pentru iframe este:'.$row['link'];*/
+}
 ?>
 
     <footer>
@@ -61,7 +67,7 @@ echo urldecode($article_title);
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

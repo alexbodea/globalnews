@@ -51,6 +51,8 @@
             <div class="col-xs-12">
             <?php
 
+            global $con;
+            
 			$country_id = getcid($countryslug);
 			$sql = "SELECT * FROM news WHERE country_id='$country_id' ORDER BY pubdate DESC";
 			$res = mysqli_query($con,$sql);
@@ -62,7 +64,7 @@
                     <h2><a href="'.$row["link"].'" title="keywords for this">'.$row["title"].'</a></h2>
                     <i class="fa fa-clock-o"></i><span class="extra">'.$row["pubdate"].'</span>
                     <i class="fa fa-link"></i><a class="extra" href="#" title="keyword for this">'.$row["author"].'</a>
-                    <p>'.$row["description"].'<a href="/'.$countryslug.'/'.urlencode($row["title"]).'">'.translate('Read more',$countryslug).'</a></p>
+                    <p>'.$row["description"].'<a href="/'.$countryslug.'/'.urlencode($row["title"]).'"> ... '.translate('Read more',$countryslug).'</a></p>
                 </section>';
 			}
 

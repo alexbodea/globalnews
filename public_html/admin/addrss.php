@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config.php');
-include('db.php');
+include('../../modules/db/db.php');
 include('functions.php');
 
 
