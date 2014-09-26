@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            {% for article in articles %}
+            <section class="news">
+                <h2><a href="{{ article.link }}" title="keywords for this">{{ article.title }}</a></h2>
+                <i class="fa fa-clock-o"></i><span class="extra">{{ article.pubdate }}</span>
+                <i class="fa fa-link"></i><a class="extra" href="#" title="keyword for this">{{ article.author }}</a>
+                <p>{{ article.description }}<a href="/'.$countryslug.'/'.urlencode($row["title"]).'"></a></p>
+            </section>
+            {% endfor %}
+        </div>
+    </div>
+</div>

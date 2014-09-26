@@ -22,7 +22,7 @@ else {
     if ($base == '') {
 
         $countryslug= $ext;
-        include('includes/index.php');
+        include('controllers/index.php');
     }
 
     else {
@@ -31,14 +31,14 @@ else {
 
             $countryslug= $base;
 
-            include('includes/index.php');
+            include('controllers/index.php');
         }
         else {
 
             $article_title = $segs[2];
             $countryslug= $base;
 
-            include('includes/article.php');
+            include('controllers/article.php');
         }
     }
 }
