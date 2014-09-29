@@ -2,7 +2,7 @@
 
 	header('Content-Type: text/html; charset=UTF-8');
 
-	include('db.php');
+	include('../../modules/db/db.php');
 	include('functions.php');
 
 	$hour = date('H');
@@ -40,6 +40,7 @@
 						$description = mysqli_real_escape_string($con,$entry->description);
 						$description = strip_tags_content($description);
 						$description = strip_tags($description);
+						$description = html_entity_decode($description);
 					    $sql4 = "INSERT INTO news (country_id,author,title,description,link,pubdate) VALUES ('$country_id','$author','$title','$description','$link','$pubDate')";
 					    $res4 = mysqli_query($con,$sql4);
 

@@ -25,9 +25,11 @@
 
         $articles[$array_index] = $row;
         $articles[$array_index]['link'] = urlencode($row['title']);
+        $articles[$array_index]['description'] = html_entity_decode($row['description']);
         $array_index = $array_index +1;
    
     }
+
     echo $twig->render('news_item.html', array('articles' => $articles ));
 
 

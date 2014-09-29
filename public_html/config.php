@@ -2,7 +2,7 @@
 
 define ('M_PATH', dirname(__FILE__));
 
-define ('M_SYSPATH', 'C:/Users/Alex/Documents/GitHub/globalnews/modules/');
+define ('M_SYSPATH', $_SERVER['DOCUMENT_ROOT'].'/../modules/');
 
 $active_theme = '/themes/theme1';
 ?>

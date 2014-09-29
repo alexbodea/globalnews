@@ -40,7 +40,11 @@
         <nav data-role="main_menu">
             <button><span></span><span></span><span></span></button>
             <a href="#" title="keywords for this">{{ home }}</a>
-            <a href="#" title="keywords for this">{{ country }}</a>
+            <select>{{ country }}>
+                {% for country in countrys %}
+                <option>{{ country.country }}</option>
+                {% endfor %}
+            </select>
             <a href="#" title="keywords for this">{{ about }}</a>
         </nav>
     </header>
