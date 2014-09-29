@@ -7,8 +7,11 @@
 
 	$hour = date('H');
 	$today = date('d M Y');
-	$yesterday = date("d M Y", time() - 60 * 60 * 24);
-	$yesterday2 = date("d M Y", time() - 60 * 60 * 48);
+	$today2 = date('Y.m.d');
+	$yesterday = date("Y.m.d", time() - 60 * 60 * 24);
+	$yesterday2 = date("Y.m.d", time() - 60 * 60 * 48);
+
+	echo $today;
 
 	//update database with today's news with duplicate checking
 	$sql = "SELECT id FROM slugs WHERE timezone = '$hour'";
@@ -23,7 +26,11 @@
 
 			$content = file_get_contents($row2['link']);
 			$xmlfeed = new SimpleXmlElement($content);
-			$author = $xmlfeed->channel->title;
+			$author = $xmlfeed->channel->link;
+        	$first = strpos($author,'.');
+	        $author = substr($author,$first+1);
+	        $second = strpos($author,'/');
+	        $author = substr($author,0,$second);
 
 			foreach($xmlfeed->channel->item as $entry) {
 
@@ -37,11 +44,32 @@
 
 						$link = mysqli_real_escape_string($con,$entry->link);
 						$pubDate = mysqli_real_escape_string($con,$entry->pubDate);
+
+
+						$dates = explode(' ', $pubDate);
+				        $date = array(
+				            'Jan' => '01',
+				            'Feb' => '02',
+				            'Mar' => '03',
+				            'Apr' => '04',
+				            'May' => '05',
+				            'Jun' => '06',
+				            'Jul' => '07',
+				            'Aug' => '08',
+				            'Sep' => '09',
+				            'Oct' => '10',
+				            'Nov' => '11',
+				            'Dec' => '12'
+				            );
+				        $dates[2] = $date[$dates[2]];
+				        $date_converted = $dates[3].'.'.$dates[2].'.'.$dates[1];
+
+
 						$description = mysqli_real_escape_string($con,$entry->description);
 						$description = strip_tags_content($description);
 						$description = strip_tags($description);
 						$description = html_entity_decode($description);
-					    $sql4 = "INSERT INTO news (country_id,author,title,description,link,pubdate) VALUES ('$country_id','$author','$title','$description','$link','$pubDate')";
+					    $sql4 = "INSERT INTO news (country_id,author,title,description,link,pubdate) VALUES ('$country_id','$author','$title','$description','$link','$date_converted')";
 					    $res4 = mysqli_query($con,$sql4);
 
 				    }
@@ -51,7 +79,7 @@
 	}
 
 	//delete entries older than 2 days
-	$sql = "DELETE from news WHERE (pubdate NOT LIKE '%$today%' AND pubdate NOT LIKE '%$yesterday%' AND pubdate NOT LIKE '%$yesterday2%')";
+	$sql = "DELETE from news WHERE (pubdate NOT LIKE '%$today2%' AND pubdate NOT LIKE '%$yesterday%' AND pubdate NOT LIKE '%$yesterday2%')";
 	$res = mysqli_query($con,$sql);
 
 ?>

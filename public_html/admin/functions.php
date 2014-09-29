@@ -59,3 +59,12 @@ function strip_tags_content($text, $tags = '', $invert = FALSE) {
   }
   return $text;
 } 
+
+
+/*transform from YYYY.MM.DD -> DD.MM.YYYY*/
+function reverse_date($date) {
+
+    $dates = explode('.', $date);
+    return $dates[2].'.'.$dates[1].'.'.$dates[0];
+
+}

@@ -26,11 +26,25 @@
         $articles[$array_index] = $row;
         $articles[$array_index]['link'] = urlencode($row['title']);
         $articles[$array_index]['description'] = html_entity_decode($row['description']);
-        $array_index = $array_index +1;
+        $articles[$array_index]['pubdate'] = reverse_date($articles[$array_index]['pubdate']);
+        $array_index += 1;
    
     }
+    $today = date('d.m.Y');
+    $yesterday = date("d.m.Y", time() - 60 * 60 * 24);
 
-    echo $twig->render('news_item.html', array('articles' => $articles ));
+    $sql2 = "SELECT DISTINCT author FROM news WHERE country_id = '$country_id'";
+    $res = mysqli_query($con,$sql2);
+    $authors = [];
+    $array_index = 0;
+    while($row = mysqli_fetch_array($res)) {
+
+        $authors[$array_index] = $row['author'];
+        $array_index += 1;
+
+    }
+    var_dump($authors);
+    echo $twig->render('news_item.html', array('articles' => $articles,'today' => $today , 'yesterday' => $yesterday, 'authors' => $authors));
 
 
     include('includes/footer.php');
