@@ -1,12 +1,41 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 filters">
+            filters:
+            <div class="dropdown js_date">
+                <button role="button" data-toggle="dropdown">
+                    <i class="fa fa-clock-o"></i>
+                    <span class="text">Choose a date</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="24.09.2014">Today</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="23.09.2014">Yesterday</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="">All</a></li>
+                </ul>
+            </div>
+            <div class="dropdown js_media">
+                <button role="button" data-toggle="dropdown">
+                    <i class="fa fa-link"></i>
+                    <span class="text">Choose a media</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="gandul.info">Gandul</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="adevarul.info">Adevarul</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="prosport.info">ProSport</a></li>
+                    <li><a role="menuitem" tabindex="-1" href="#" data-value="">All</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-xs-12 news_wrapper">
             {% for article in articles %}
-            <section class="news">
+            <section class="news" data-raw-date="" data-raw-media="{{ article.author }}">
                 <h2><a href="{{ article.link }}" title="keywords for this">{{ article.title }}</a></h2>
                 <i class="fa fa-clock-o"></i><span class="extra">{{ article.pubdate }}</span>
                 <i class="fa fa-link"></i><a class="extra" href="#" title="keyword for this">{{ article.author }}</a>
-                <p>{{ article.description }}<a href="/'.$countryslug.'/'.urlencode($row["title"]).'"></a></p>
+                <p>{{ article.description }}</p>
             </section>
             {% endfor %}
         </div>
