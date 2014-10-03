@@ -15,6 +15,7 @@
     include('includes/header.php');
 
     $article_title= urldecode($article_title);
+    $article_title = mysqli_real_escape_string($con,$article_title);
     $sql = "SELECT link FROM news WHERE title LIKE '%$article_title%'";
     $res = mysqli_query($con,$sql);
     while($row = mysqli_fetch_array($res)){
