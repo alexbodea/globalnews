@@ -14,26 +14,15 @@
     $ext = getslug($country);
 
 
-<<<<<<< HEAD
     $url  = $_SERVER['REQUEST_URI'];
     $segs = explode('/',$url);
     $base = $segs[1];
-=======
-        $countryslug= $ext;
-        header('Location: /'.$countryslug.'/');
-    }
-    else {
-
-        if(empty($segs[2])) {
-
-            $countryslug= $base;
->>>>>>> FETCH_HEAD
 
     if ($base == 'admin') {
         include ($_SERVER['REQUEST_URI']);
     } elseif ($base == '') {
         $countryslug = $ext;
-        include('controllers/index.php');
+        header('Location: /'.$countryslug.'/');
     } elseif(empty($segs[2])) {
         $countryslug = $base;
         include('controllers/index.php');
@@ -42,9 +31,5 @@
         $countryslug   = $base;
         include('controllers/article.php');
     }
-<<<<<<< HEAD
 
-=======
-}
->>>>>>> FETCH_HEAD
 ?>

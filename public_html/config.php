@@ -6,4 +6,12 @@
 
     $active_theme = '/themes/theme1';
 
+    $db_host = 'localhost';
+
+    $db_username = 'globalnews';
+
+    $db_pass = 'globalnews2014';
+    
+    $db_database = 'news';
+
 ?>
