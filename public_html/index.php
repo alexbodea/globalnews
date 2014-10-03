@@ -22,9 +22,8 @@ else {
     if ($base == '') {
 
         $countryslug= $ext;
-        include('controllers/index.php');
+        header('Location: /'.$countryslug.'/');
     }
-
     else {
 
         if(empty($segs[2])) {
@@ -42,5 +41,4 @@ else {
         }
     }
 }
-
 ?>

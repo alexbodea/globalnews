@@ -15,15 +15,14 @@
     include('includes/header.php');
 
     $article_title= urldecode($article_title);
-    $sql = "SELECT link FROM news WHERE title = '$article_title'";
+    $sql = "SELECT link FROM news WHERE title LIKE '%$article_title%'";
     $res = mysqli_query($con,$sql);
     while($row = mysqli_fetch_array($res)){
 
-        $row['link'];
+        $link = $row['link'];
 
     }
-
-    echo $twig->render('article.html', array('link' => $row['link'] ));
+    echo $twig->render('article.html', array('link' => $link ));
 
     include('includes/footer.php');
 
