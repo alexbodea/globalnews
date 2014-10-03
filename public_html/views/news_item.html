@@ -29,6 +29,7 @@
             </div>
         </div>
 
+
         <div class="col-xs-12 news_wrapper">
             {% for article in articles %}
             <section class="news" data-raw-date="{{ article.pubdate }}" data-raw-media="{{ article.author }}">
@@ -38,6 +39,10 @@
                 <p>{{ article.description }}</p>
             </section>
             {% endfor %}
+
+            <div class="empty_content">
+                There are no news under this settings. Please refine your filters.
+            </div>
         </div>
     </div>
 </div>
