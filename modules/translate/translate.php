@@ -1,15 +1,16 @@
-<?php 
+<?php
 
-function translate($word,$countryslug) {
+    function translate($word,$countryslug) {
+        global $con;
 
-	global $con;
+        $sql = "SELECT * FROM locale WHERE us='$word'";
+        $res = mysqli_query($con,$sql);
 
-	$sql = "SELECT * FROM locale WHERE us='$word'";
-	$res = mysqli_query($con,$sql);
-	while($row = mysqli_fetch_array($res)) {
+        while($row = mysqli_fetch_array($res)) {
+            $word_t = $row[$countryslug];
+        }
 
-		$word_t = $row[$countryslug];
-	}
+        return $word_t;
+    }
 
-	return $word_t;
-}
+?>
