@@ -39,12 +39,19 @@
         <a class="logo" href="#" title="Keywords for this">World News</a>
         <nav data-role="main_menu">
             <button><span></span><span></span><span></span></button>
-            <a href="#" title="keywords for this">{{ home }}</a>
-            <select>{{ country }}>
-                {% for country in countrys %}
-                <option value = "{{ country.slug }}">{{ country.country }}</option>
-                {% endfor %}
-            </select>
+            <a href="/" title="keywords for this">{{ home }}</a>
+
+            <div class="dropdown js_country">
+                <button role="button" data-toggle="dropdown">
+                    <span class="text">Country</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    {% for country in countrys %}
+                    <li><a href="/ro/" title="global news for {{ country.country }}">{{ country.country }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
             <a href="#" title="keywords for this">{{ about }}</a>
         </nav>
     </header>
