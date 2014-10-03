@@ -23,9 +23,10 @@
     $articles    = [];
     $array_index = 0;
 
+
     while($row = mysqli_fetch_array($res)) {
         $articles[$array_index]                = $row;
-        $articles[$array_index]['link']        = urlencode($row['title']);
+        $articles[$array_index]['link']        = urlencode(substr($row['title'], 0, 60));
         $articles[$array_index]['description'] = html_entity_decode($row['description']);
         $articles[$array_index]['pubdate']     = reverse_date($articles[$array_index]['pubdate']);
         $array_index                          += 1;

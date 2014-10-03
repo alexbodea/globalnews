@@ -42,7 +42,7 @@
             <a href="#" title="keywords for this">{{ home }}</a>
             <select>{{ country }}>
                 {% for country in countrys %}
-                <option>{{ country.country }}</option>
+                <option value = "{{ country.slug }}">{{ country.country }}</option>
                 {% endfor %}
             </select>
             <a href="#" title="keywords for this">{{ about }}</a>
