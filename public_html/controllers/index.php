@@ -7,6 +7,15 @@
     $loader = new Twig_Loader_Filesystem('views/');
     $twig   = new Twig_Environment($loader);
 
+    $twig->addExtension(new Twig_Extensions_Extension_I18n());
+
+    putenv('LC_ALL='.$countryslug.'_'.strtoupper($countryslug)); 
+    setlocale(LC_ALL,$countryslug.'_'.strtoupper($countryslug)); 
+// Specify location of translation tables
+    bindtextdomain("default", M_PATH."/locale"); 
+// Choose domain 
+    textdomain("default");
+
 
     // global database connection //
     global $con;
@@ -26,7 +35,7 @@
 
     while($row = mysqli_fetch_array($res)) {
         $articles[$array_index]                = $row;
-        $articles[$array_index]['link']        = urlencode(substr($row['title'], 0, 60));
+        $articles[$array_index]['link']        = '/'.$countryslug.'/'.urlencode(substr($row['title'], 0, 60));
         $articles[$array_index]['description'] = html_entity_decode($row['description']);
         $articles[$array_index]['pubdate']     = reverse_date($articles[$array_index]['pubdate']);
         $array_index                          += 1;
@@ -49,7 +58,7 @@
 
 
     // Twig html generation
-    echo $twig->render('news_item.html', array('articles' => $articles, 'today' => $today, 'yesterday' => $yesterday, 'authors' => $authors));
+    echo $twig->render('news_item.html', array('articles' => $articles, 'todayx' => $today, 'yesterdayx' => $yesterday, 'authors' => $authors));
 
 
     include('includes/footer.php');
