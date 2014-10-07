@@ -23,7 +23,6 @@ foreach ($countrys as $country) {
     $data = 'msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 
