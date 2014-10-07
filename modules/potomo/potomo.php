@@ -86,10 +86,11 @@ $state = null;
 $fuzzy = false;
 }
 break;
-case 'msgctxt' :
-// context
 case 'msgid' :
 // untranslated-string
+$last_msgid = $data;
+case 'msgctxt' :
+// context
 case 'msgid_plural' :
 // untranslated-string-plural
 $state = $key;
@@ -98,6 +99,9 @@ break;
 case 'msgstr' :
 // translated-string
 $state = 'msgstr';
+if(trim($data) == "\"\""){
+$temp[$state][] = $last_msgid;
+} else
 $temp[$state][] = $data;
 break;
 default :

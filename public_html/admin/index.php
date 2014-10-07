@@ -32,3 +32,4 @@ if(isset($_GET['pass']) && crypt($_GET['pass'], '$6$rounds=5042$542504ba4ace42.9
 } else {
 	header('Location: http://localhost');
 }
+?>

@@ -1,9 +1,5 @@
 <?php
 
-    $home =  translate('Home',$countryslug);
-    $country = translate('Country',$countryslug);
-    $about = translate('About',$countryslug);
-
     $sql = "SELECT country2,slug FROM slugs ORDER BY CASE 
                                                     WHEN slug='$countryslug' THEN 1 
                                                     ELSE country2
@@ -20,6 +16,6 @@
     }
 
 
-    echo $twig->render('header.html', array('theme' => $active_theme , 'home' => $home , 'country' => $country, 'about' => $about , 'countrys' => $countrys ));
+    echo $twig->render('header.html', array('theme' => $active_theme , 'countrys' => $countrys ));
 
 ?>
