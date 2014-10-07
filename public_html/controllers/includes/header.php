@@ -1,11 +1,9 @@
 <?php
 
-    $country = translate('Country',$countryslug);
-
     $sql = "SELECT country2,slug FROM slugs ORDER BY CASE
-                                                    WHEN slug='$countryslug' THEN 1
-                                                    ELSE country2
-                                                END ASC";
+                WHEN slug='$countryslug' THEN 1
+                ELSE country2
+                END ASC";
 
     $res = mysqli_query($con,$sql);
     $array_index = 1;
@@ -17,7 +15,6 @@
         $array_index = $array_index+1;
     }
 
-
-    echo $twig->render('header.html', array('theme' => $active_theme, 'country' => $country, 'countrys' => $countrys));
+    echo $twig->render('header.html', array('theme' => $active_theme , 'countrys' => $countrys ));
 
 ?>

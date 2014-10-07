@@ -12,10 +12,10 @@
     putenv('LC_ALL='.$countryslug.'_'.strtoupper($countryslug)); 
     setlocale(LC_ALL,$countryslug.'_'.strtoupper($countryslug)); 
 // Specify location of translation tables
+    bindtextdomain("default", M_PATH."/locale/nocache");
     bindtextdomain("default", M_PATH."/locale"); 
 // Choose domain 
     textdomain("default");
-
 
     // global database connection //
     global $con;

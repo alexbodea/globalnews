@@ -1,23 +1,45 @@
 msgid ""
 msgstr ""
-Content-Type: text/plain; charset=UTF-8"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"X-Generator: Poedit 1.6.9\n"
+
 msgid "home"
-msgstr "acasă"
+msgstr "nuacasă"
+
 msgid "country"
 msgstr "ţară"
+
 msgid "about"
 msgstr "despre"
+
 msgid "read more"
 msgstr "citeşte mai mult"
+
 msgid "filters"
 msgstr "filtre"
+
 msgid "choose a date"
 msgstr "alege o data"
+
 msgid "today"
 msgstr "azi"
+
 msgid "yesterday"
 msgstr "ieri"
+
 msgid "all"
 msgstr "toate"
+
 msgid "choose a media"
 msgstr "alege un autor"
+
+msgid "country_name"
+msgstr "România"
