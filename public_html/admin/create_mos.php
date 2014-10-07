@@ -25,7 +25,6 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-
 "Last-Translator: \n"
 
 "Language-Team: \n"
