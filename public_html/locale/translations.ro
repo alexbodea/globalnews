@@ -1,0 +1,15 @@
+<?php
+
+$translations = array('Home' => 'Acasă',
+                      'Country' => 'Ţară',
+                      'Contact' => 'Contact',
+                      'Today' => 'Azi',
+                      'Yesterday' => 'Ieri',
+                      'Filters' => 'Filtre',
+                      'Choose a date' => 'Alege o dată',
+                      'All' => 'Toate',
+                      'Choose a media' => 'Alege un autor',
+                      'There are no news under this settings. Please refine your filters.' => 'Nu există ştiri cu aceste setări. Schimbaţi filtrele.'
+                );
+
+?>

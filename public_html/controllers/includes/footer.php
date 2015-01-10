@@ -1,5 +1,5 @@
  <?php
 
-    echo $twig->render('footer.html', array('theme' => $active_theme));
+    echo $twig->render('includes/footer.html', array('theme' => $active_theme));
 
 ?>

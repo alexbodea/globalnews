@@ -6,16 +6,15 @@
                                                 END ASC";
                               
     $res = mysqli_query($con,$sql);
-    $array_index = 1;
-    $countrys = [];
+    $array_index = 0;
+    $country_menu = array();
     while($row = mysqli_fetch_array($res)) {
 
-        $countrys[$array_index]['country'] = $row['country2'];
-        $countrys[$array_index]['slug'] = $row['slug'];
-        $array_index = $array_index+1;
+        $country_menu[$array_index]['country'] = $row['country2'];
+        $country_menu[$array_index]['slug'] = $row['slug'];
+        $array_index ++;
     }
 
-
-    echo $twig->render('header.html', array('theme' => $active_theme , 'countrys' => $countrys ));
+    echo $twig->render('includes/header.html', array('theme' => $active_theme , 'country_menu' => $country_menu , 'translations' => $translations));
 
 ?>

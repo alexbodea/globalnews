@@ -1,14 +1,12 @@
 <?php
 
     include('config.php');
-    include(M_SYSPATH.'/translate/translate.php');
-    include(M_SYSPATH.'/db/db.php');
+    include(M_SYSPATH.'translate/translate.php');
+    include(M_SYSPATH.'db/db.php');
     include('admin/functions.php');
 
 
-    $json    = file_get_contents('http://freegeoip.net/json/gandul.info');
-    $geoip   = json_decode($json);
-    $country = $geoip->country_name;
+    $country = 'Romania';
 
 
     $ext = getslug($country);

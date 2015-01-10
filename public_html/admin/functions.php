@@ -1,6 +1,7 @@
 <?php
 
     function getslug($country) {
+
         global $con;
 
         $sql = "SELECT slug FROM slugs WHERE country = '$country'";
