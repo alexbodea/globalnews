@@ -18,4 +18,17 @@
         $dates = explode('.', $date);
         return $dates[2].'.'.$dates[1].'.'.$dates[0];
     }
+
+
+    function getcid($country) {
+        global $con;
+
+        $sql = "SELECT id FROM slugs WHERE country = '$country' OR slug = '$country'";
+        $res = mysqli_query($con,$sql);
+
+        while($row = mysqli_fetch_array($res))
+            $cid = $row['id'];
+
+        return $cid;
+    }
 ?>

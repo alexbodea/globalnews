@@ -1,15 +1,1 @@
-<?php
-
-$translations = array('Home' => 'Maison',
-                      'Country' => 'Pays',
-                      'Contact' => 'Contact',
-                      'Today' => 'Aujourd\'hui',
-                      'Yesterday' => 'Hier',
-                      'Filters' => 'Filtres',
-                      'Choose a date' => 'Choisir une date',
-                      'All' => 'Tous',
-                      'Choose a media' => 'Choisir un média',
-                      'There are no news under this settings. Please refine your filters.' => 'Il n\'y a aucune nouvelles dans ces paramètres. Se il vous plaît affiner vos filtres.'
-                );
-
-?>
+{"Home":"Accueil","Country":"Pays","About":"Contact","Read more":"En savoir plus","testus":"testfr","test1":"test1fr"}
