@@ -1,17 +1,11 @@
 <?php
-
     define ('M_PATH', dirname(__FILE__));
-
     define ('M_SYSPATH', $_SERVER['DOCUMENT_ROOT'].'/../modules/');
 
     $active_theme = '/themes/theme1';
 
-    $db_host = 'localhost';
-
-    $db_username = 'globalnews';
-
-    $db_pass = 'globalnews2014';
-
-    $db_database = 'news';
-
+    $db_host      = 'localhost';
+    $db_username  = 'globalnews';
+    $db_pass      = 'globalnews2014';
+    $db_database  = 'news';
 ?>
