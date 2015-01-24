@@ -3,7 +3,7 @@
     include('config.php');
     include(M_SYSPATH.'translate/translate.php');
     include(M_SYSPATH.'db/db.php');
-    include('admin/functions.php');
+    include('utils/functions.php');
 
 
     $country = 'Romania';

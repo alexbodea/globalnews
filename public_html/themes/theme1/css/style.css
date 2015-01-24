@@ -804,6 +804,7 @@ body > .contact_form {
   top: 0;
   left: 0;
   z-index: 1;
+  display: none;
 }
 body > .contact_form .content {
   width: 90%;

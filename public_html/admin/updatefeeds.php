@@ -2,8 +2,9 @@
 
 	header('Content-Type: text/html; charset=UTF-8');
 
-	include('../../modules/db/db.php');
-	include('functions.php');
+	include('../config.php');
+	include(M_SYSPATH.'db/db.php');
+	include('utils/functions.php');
 
 	$hour = date('H');
 	$today = date('d M Y');
