@@ -2,8 +2,8 @@
         <section>
             <button class="go_up" data-role="go_up"><i class="fa fa-arrow-up"></i> UP</button>
             <div class="social">
-                <a class="fa fa-facebook" href="#" title="Facebook  | keywords for this"></a>
-                <a class="fa fa-google-plus" href="#" title="Google Plus  | keywords for this"></a>
+                <a class="fa fa-facebook" href="www.facebook.com/coffee2news" title="Facebook  | Coffee 2 News"></a>
+                <a class="fa fa-google-plus" href="#" title="Google Plus  | Coffee 2 News"></a>
             </div>
         </section>
 
@@ -39,13 +39,17 @@
 
 
     <div class="contact_form">
-        <div class="content">
+        <div class="content row">
             <button class="close" title="Close"><i class="fa fa-times-circle-o"></i></button>
             <h3>Interact with us !</h3>
             <p>Propose new countries, help with the translations, input new rss feed or report bugs or improvements.</p>
-            <input type="text" required pattern=".{5,}" placeholder="Full name (required)" />
-            <input type="email" required pattern=".{5,}" placeholder="Email (required)" />
-            <textarea cols="30" rows="10" required pattern=".{10,2000}"  placeholder="Enter your text here (max 2000 chars)"></textarea>
+            <form action="#" method="post">
+                <input type="text" required pattern=".{5,}" placeholder="Full name (required)" />
+                <input type="email" required pattern=".{5,}" placeholder="Email (required)" />
+                <textarea cols="30" rows="10" required pattern=".{10,2000}"  placeholder="Enter your text here (max 2000 chars)"></textarea>
+                <button class="btn_submit">Send</button>
+            </form>
+            <p class="success_text">Thank you for contacting us !</p>
         </div>
     </div>
 
