@@ -10,7 +10,6 @@
 
     $ext = getslug($country);
 
-    $translations = json_decode(file_get_contents('locale/translations.'.$ext), true);
     $url  = $_SERVER['REQUEST_URI'];
     $segs = explode('/',$url);
     $base = $segs[1];
@@ -20,12 +19,11 @@
     } elseif ($base == '') {
         $countryslug = $ext;
         header('Location: /'.$countryslug.'/');
-    } elseif(empty($segs[2])) {
+    } elseif(is_slug($base)) {
+        $translations = json_decode(file_get_contents('locale/translations.'.$base), true);
         $countryslug = $base;
         include('controllers/index.php');
-    } else {
-        $article_title = $segs[2];
-        $countryslug   = $base;
+    } elseif(is_article($url)) {
         include('controllers/article.php');
     }
 

@@ -31,4 +31,17 @@
 
         return $cid;
     }
+
+
+    function is_slug($slug) {
+        global $con;
+
+        $sql = "SELECT id FROM slugs WHERE slug = '$slug'";
+        $res = mysqli_query($con,$sql);
+
+        if(mysqli_num_rows($res) != 0)
+            return true;
+        else
+            return false;
+    }
 ?>

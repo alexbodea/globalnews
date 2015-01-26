@@ -17,7 +17,6 @@
     $articles    = array();
     $array_index = 0;
 
-
     while($row = mysqli_fetch_array($res)) {
         $articles[$array_index]                = $row;
         $articles[$array_index]['link']        = '/'.$countryslug.'/'.urlencode(substr($row['title'], 0, 60));
