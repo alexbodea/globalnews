@@ -1,15 +1,1 @@
-<?php
-
-$translations = array('Home' => 'Acasă',
-                      'Country' => 'Ţară',
-                      'Contact' => 'Contact',
-                      'Today' => 'Azi',
-                      'Yesterday' => 'Ieri',
-                      'Filters' => 'Filtre',
-                      'Choose a date' => 'Alege o dată',
-                      'All' => 'Toate',
-                      'Choose a media' => 'Alege un autor',
-                      'There are no news under this settings. Please refine your filters.' => 'Nu există ştiri cu aceste setări. Schimbaţi filtrele.'
-                );
-
-?>
+{"Home":"Acas\u0103","Country":"\u0162ara","About":"Despre","Read more":"Cite\u015fte mai mult","testus":"testro","test1":"test1ro"}

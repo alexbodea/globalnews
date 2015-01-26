@@ -6,20 +6,16 @@
 
     $twig = new Twig_Environment(new Twig_Loader_Filesystem('views/'));
 
-    include('locale/translations.'.$countryslug);
-
-
     include('includes/header.php');
 
 
     // getting data
     // $countryslug - from public_html/index.php
     $country_id  = getcid($countryslug);
-    $sql         = "SELECT * FROM news WHERE country_id='$country_id' ORDER BY pubdate DESC";
+    $sql         = "SELECT * FROM news WHERE country_id = '$country_id' ORDER BY pubdate DESC";
     $res         = mysqli_query($con,$sql);
     $articles    = array();
     $array_index = 0;
-
 
     while($row = mysqli_fetch_array($res)) {
         $articles[$array_index]                = $row;
