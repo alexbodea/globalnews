@@ -5,10 +5,10 @@
     include('utils/functions.php');
 
 
-    $us = $_POST['us'];
+/*    $us = $_POST['us'];
 
     //create line in locale table
-/*    $sql = "INSERT INTO locale (us) VALUES ('$us')";*/
+    $sql = "INSERT INTO locale (us) VALUES ('$us')";
     $res = mysqli_query($con,$sql);
     $id = mysqli_insert_id($con);
 
@@ -26,7 +26,7 @@
         $sql = "UPDATE locale SET $slug = '$value' WHERE id = '$id'";
         $res = mysqli_query($con,$sql);
 
-    }
+    }*/
     create_locales();
 /*    header('Location: index.php?pass=parola123');*/
 

@@ -44,4 +44,17 @@
         else
             return false;
     }
+
+
+    function is_article($url) {
+        global $con;
+
+        $sql = "SELECT id FROM news WHERE site_link = '$url'";
+        $res = mysqli_query($con,$sql);
+
+        if(mysqli_num_rows($res) != 0)
+            return true;
+        else
+            return false;
+    }
 ?>
