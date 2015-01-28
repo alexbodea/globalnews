@@ -1,6 +1,5 @@
+<meta charset="UTF-8">
 <?php
-
-	header('Content-Type: text/html; charset=UTF-8');
 
 	include('../config.php');
 	include(M_SYSPATH.'db/db.php');
@@ -12,14 +11,13 @@
 	$yesterday = date("Y.m.d", time() - 60 * 60 * 24);
 	$yesterday2 = date("Y.m.d", time() - 60 * 60 * 48);
 
-	echo $today;
-
 	//update database with today's news with duplicate checking
-	$sql = "SELECT id FROM slugs WHERE timezone = '$hour'";
+	$sql = "SELECT id,slug FROM slugs WHERE timezone = '1'";
 	$res = mysqli_query($con,$sql);
 	while($row = mysqli_fetch_array($res)) {
 
 		$country_id = $row['id'];
+		$country_slug = $row['slug'];
 		$sql2 = "SELECT * FROM rss WHERE country_id = '$country_id' AND active='1'";
 		$res2 = mysqli_query($con,$sql2);
 
@@ -28,7 +26,7 @@
 			$content = file_get_contents($row2['link']);
 			$xmlfeed = new SimpleXmlElement($content);
 			$author = $xmlfeed->channel->link;
-        	$first = strpos($author,'.');
+        	$first  = strpos($author,'.');
 	        $author = substr($author,$first+1);
 	        $second = strpos($author,'/');
 	        $author = substr($author,0,$second);
@@ -70,7 +68,10 @@
 						$description = strip_tags_content($description);
 						$description = strip_tags($description);
 						$description = html_entity_decode($description);
-					    $sql4 = "INSERT INTO news (country_id,author,title,description,link,pubdate) VALUES ('$country_id','$author','$title','$description','$link','$date_converted')";
+						$self_link = normalize($title);
+						$self_link = prepare_link($self_link);
+						$site_link = '/' . $country_slug . '/' . $self_link;
+					    $sql4 = "INSERT INTO news (country_id,author,title,description,site_link,link,pubdate) VALUES ('$country_id','$author','$title','$description','$site_link','$link','$date_converted')";
 					    $res4 = mysqli_query($con,$sql4);
 
 				    }

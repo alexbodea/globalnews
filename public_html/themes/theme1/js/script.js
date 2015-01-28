@@ -118,7 +118,7 @@ module.exports = function() {
     form.addEventListener('submit', function(e) {
         // AJAX call
         utils.post({
-            url: '/admin/ajax_proces.php',
+            url: '/utils/ajax_interact.php',
             data:    {
                 name:  input_text.value,
                 email: input_email.value,

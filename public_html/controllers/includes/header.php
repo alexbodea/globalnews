@@ -1,7 +1,7 @@
 <?php
 
     $sql = "SELECT country2,slug FROM slugs ORDER BY CASE 
-                                                    WHEN slug='$countryslug' THEN 1 
+                                                    WHEN slug='$base' THEN 1 
                                                     ELSE country2
                                                 END ASC";
                               
@@ -15,6 +15,6 @@
         $array_index ++;
     }
 
-    echo $twig->render('includes/header.html', array('theme' => $active_theme , 'country_menu' => $country_menu , 'translations' => $translations));
+    echo $twig->render('includes/header.html', array('theme' => $active_theme , 'country_menu' => $country_menu , 'translations' => $translations, 'current_slug' => $base));
 
 ?>

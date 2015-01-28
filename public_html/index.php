@@ -5,7 +5,7 @@
     include('utils/functions.php');
 
 
-    $country = 'France';
+    $country = 'Romania';
 
 
     $ext = getslug($country);
@@ -19,12 +19,12 @@
     } elseif ($base == '') {
         $countryslug = $ext;
         header('Location: /'.$countryslug.'/');
-    } elseif(is_slug($base)) {
-        $translations = json_decode(file_get_contents('locale/translations.'.$base), true);
-        $countryslug = $base;
-        include('controllers/index.php');
-    } elseif(is_article($url)) {
+    }
+    elseif(is_article($url)) {
         include('controllers/article.php');
+    }
+    elseif(is_slug($base)) {
+        include('controllers/index.php');
     }
 
 ?>
