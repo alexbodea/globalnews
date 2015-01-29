@@ -27,5 +27,6 @@
         echo $sql;
         $i++;
     }
+    create_locales();
     header('Location: index.php?pass=parola123');
 ?>
