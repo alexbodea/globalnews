@@ -49,12 +49,24 @@
                     <form action="addlocale.php" method="post">
                         <?php 
 
-                        $sql = "SELECT country2,slug FROM slugs";
+                        $sql = "SELECT slug FROM slugs";
                         $res = mysqli_query($con,$sql);
+                        $slugs = array();
+                        $array_index = 0;
                         while ($row = mysqli_fetch_array($res)) {
-                            echo '<label>'.$row['country2'].'</label><input type="text" id="'.$row['slug'].'" name="'.$row['slug'].'"><br>';
-
-                            } ?>
+                            $slugs[$array_index] = $row['slug'];
+                            $array_index ++;
+                            } 
+                        foreach ($slugs as $slug) {
+                            echo $slug.':<br>';
+                            $sql = "SELECT id,$slug FROM locale";
+                            $res = mysqli_query($con,$sql);
+                            while($row = mysqli_fetch_array($res)) {
+                                echo '<textarea name="update_'.$row['id'].'_'.$slug.'">'.$row[$slug].'</textarea>';
+                            }
+                            echo '<br>';
+                        }
+                        ?>
                         <input type="submit" value="Adauga"/>
     			</body> <?php
 
