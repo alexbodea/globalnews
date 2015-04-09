@@ -1,1 +1,0 @@
-{"Home":"Accueil","Country":"Pays","About":"Contact","Read more":"En savoir plus","testus":"testfr","test1":"test1fr"}

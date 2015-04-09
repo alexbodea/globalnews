@@ -1,0 +1,22 @@
+{% include 'includes/header.html' with { active_theme : utils.active_theme, active_menu : active_menu, title_part : title_part }%}
+
+    <div class="container new_phrase_wrapper">
+        <h1>Adauga cuvant nou in locale</h1>
+        <form action="adaugare-traduceri" method="post">
+            <div class="row">
+                {% for slug in slugs %} 
+                    <div class="col-xs-3">
+                        {{ slug.slug }}
+
+                        {% for data in slug.data %}
+                            <textarea name="update_{{ data.id }}_{{ slug.slug }}" required>{{ data[slug.slug] }}</textarea>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="btn add_new_phrase">Add new phrase</button>
+            <input type="submit" value="Adauga"/>
+        </form>
+    </div>
+
+{% include 'includes/footer.html' with { active_theme : utils.active_theme } %}

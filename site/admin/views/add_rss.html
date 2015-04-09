@@ -1,0 +1,16 @@
+{% include 'includes/header.html' with { active_theme : utils.active_theme, active_menu : active_menu, title_part : title_part }%}
+
+    <div class="container">
+        <h1>Adauga intrare rss</h1>
+        <form action="adaugare-rss" method="post">
+            <label>Rss</label><input type="text" id="rss" name="rss"/><br>
+            <select name="country_id">
+                {% for slug in slugs %}
+                    <option value="{{ slug.id }}">{{ slug.country }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" value="Adauga"/>
+        </form>
+    </div>
+
+{% include 'includes/footer.html' with { active_theme : utils.active_theme } %}

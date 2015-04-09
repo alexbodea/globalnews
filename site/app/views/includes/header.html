@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Coffee 2 News</title>
+
+
+    <meta name="description" content="World news. We keep you up to date with your local news" />
+    <meta name="keywords" content="world news, world events, breaking news, news online, U.S. news, world news, developing story, eather, business, money, politics, law, technology, entertainment, education, travel, health, special reports" />
+
+
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png" />
+    <link rel='index' title='World news. We keep you up to date with your local news' href='http://www.coffee2news.com/' />
+
+    <!--   TO BE FILLED with the proper paths
+    <link rel="canonical" href="canonical adress" />
+    <link rel="author" href="https://www.google.com/+ClaudiuLimban" />
+    end of TO BE FILLED -->
+
+
+    <link href="{{ active_theme }}css/print.css" rel="stylesheet" media="print" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ active_theme }}css/style.css" rel='stylesheet' media='screen' />
+</head>
+
+
+<body>
+
+    <header>
+        <a itemscope itemtype="http://schema.org/LocalBusiness" class="logo" href="http://www.coffee2news.com/" title="World news. We keep you up to date with your local news"><img itemprop="image" width="98" height="53" src="{{ active_theme }}img/logo.png" alt="World news. We keep you up to date with your local news"></a>
+        <nav data-role="main_menu">
+            <button><span></span><span></span><span></span></button>
+            <a href="/{{ data.first }}/" title="keywords for this">{{ translations['1'] }}</a>
+
+            <div class="dropdown js_country">
+                <button role="button" data-toggle="dropdown">
+                    <span class="text">{{ translations['2'] }}</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    {% for country in countries %}
+                    <li><a href="/{{ country.slug }}/" title="global news for {{ country.country2 }}">{{ country.country2 }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </header>

@@ -1,0 +1,62 @@
+    <footer>
+        <section>
+            <button class="go_up" data-role="go_up"><i class="fa fa-arrow-up"></i> UP</button>
+            <div class="social">
+                <a class="fa fa-facebook" href="https://www.facebook.com/coffee2news" title="Facebook  | Coffee 2 News" target="_blank"></a>
+                <a class="fa fa-google-plus" href="#" title="Google Plus  | Coffee 2 News" target="_blank"></a>
+            </div>
+        </section>
+
+        <section class="misc row">
+            <section class="col-sm-4">
+                <h3>{{ translations['9'] }}</h3>
+                <a href="#" title="keywords for this">România</a>
+                <a href="#" title="keywords for this">US</a>
+                <a href="#" title="keywords for this">France</a>
+                <a href="#" title="keywords for this">Deutchland</a>
+            </section>
+            <section class="col-sm-4">
+                <h3>{{ translations['10'] }}</h3>
+                <p>{{ translations['12'] }}</p>
+                <button class="contact">{{ translations['14'] }}</button>
+            </section>
+            <section class="col-sm-4">
+                <h3>{{ translations['15'] }}</h3>
+                <p>{{ translations['16'] }}</p>
+            </section>
+        </section>
+
+        <section class="copy row">
+            <div class="col-sm-6">
+                <p>Copyright © 2015 <a href="http://www.coffee2news.com" title="World news. We keep you up to date with your local news">www.coffee2news.com</a> All rights reserved.</p>
+                <p>Găzduit de <a class="digitalocean" href="https://www.digitalocean.com/?refcode=ec600cf09f66" target="_blank" title="Digital Ocean"></a></p>
+            </div>
+            <div class="col-sm-6">
+                <p>Designed and Developed <span>in</span> <i title="România"></i> <span>by</span> <a href="http://www.teranacreative.com" title="Web Design with HTML5, CSS3 &amp; JS">Terana Creative</a></p>
+            </div>
+        </section>
+    </footer>
+
+
+    <div class="contact_form">
+        <div class="content row">
+            <button class="close" title="Close"><i class="fa fa-times-circle-o"></i></button>
+            <h3>{{ translations['14'] }}</h3>
+            <p>{{ translations['12'] }}</p>
+            <form action="#" method="post">
+                <input type="text" required pattern=".{5,}" placeholder="{{ translations['19'] }} (required)" />
+                <input type="email" required pattern=".{5,}" placeholder="{{ translations['20'] }} (required)" />
+                <textarea cols="30" rows="10" required pattern=".{10,2000}"  placeholder="{{ translations['21'] }}"></textarea>
+                <button class="btn_submit">{{ translations['18'] }}</button>
+            </form>
+            <p class="success_text">{{ translations['22'] }}</p>
+        </div>
+    </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="{{ utils.active_theme }}/js/script.js"></script>
+</body>
+
+</html>

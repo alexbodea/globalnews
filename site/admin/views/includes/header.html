@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title_part }}</title>
+
+        <link rel="shortcut icon"    href="{{ active_theme }}img/favicon.png" type="image/png" />
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ active_theme }}css/admin.css" rel='stylesheet' media='screen' />
+    </head>
+
+    <body>
+        <header>
+            <a itemscope itemtype="http://schema.org/LocalBusiness" class="logo" href="/" title="Haine Gravide și Bebe"><img itemprop="image" src="{{ active_theme }}img/logo.png" alt="Magazin online pentru gravide și bebeluși" /> <span itemprop="name">Haine Gravide și Bebe</span></a>
+            <nav data-role="main_menu">
+                <button><span></span><span></span><span></span></button>
+                <div class="grass"></div>
+                <a href="adaugare-traduceri" title="Adăugare traduceri"  {% if active_menu == 'add_locale' %}   class="active" {% endif %}>+ Traduceri</a>
+                <a href="adaugare-rss"    title="Adăugare rss"    {% if active_menu == 'add_rss' %}  class="active" {% endif %}>+ RSS</a>
+                <a href="adaugare-tara"      title="Adăugare ţară" {% if active_menu == 'add_slug' %}  class="active" {% endif %}>+ Ţară</a>
+            </nav>
+        </header>
+
+        {% if (msg.type == 'success') or (msg.type == 'error') %}
+        <div class="info {{ msg.type }}">
+            {{ msg.msg }}
+        </div>
+        {% endif %}
