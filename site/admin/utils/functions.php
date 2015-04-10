@@ -46,15 +46,15 @@
         $metakeywords = '';
         $words = explode(' ', $string);
         foreach ($words as $word) {
-            if(strlen($word > 3))
-                $metakeywords .= $word
+            if(strlen($word) > 3)
+                $metakeywords .= $word . ',';
         }
-        $string = str_replace(".", "", $string);
-        $string = substr($string, 0, 130);
-        $string = normalize($string);
-        $string = strtolower($string);
+        $metakeywords = str_replace(".", "", $metakeywords);
+        $metakeywords = substr($metakeywords, 0, 130);
+        $metakeywords = normalize($metakeywords);
+        $metakeywords = strtolower($metakeywords);
 
-        return $string;
+        return $metakeywords;
     }
 
 

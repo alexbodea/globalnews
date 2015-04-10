@@ -1,0 +1,4 @@
+if( server hour == timezone || 
+	server hour = (timezone + 4) % 24 || 
+	server hour = (timezone + 8) % 24 || 
+	server hour = (timezone + 12) % 24)
