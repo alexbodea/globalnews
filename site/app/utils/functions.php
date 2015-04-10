@@ -16,7 +16,7 @@
 
         $db = new db();
 
-        $metakeywords = $db->value_select("SELECT metakeywords FROM categories WHERE link='$url' UNION SELECT metakeywords FROM products WHERE link='$url' ");
+        $metakeywords = $db->value_select("SELECT metakeywords FROM news WHERE site_link = '$url'");
 
         if(!empty($metakeywords))
             return $metakeywords;
@@ -29,7 +29,7 @@
 
         $db = new db();
 
-        $metadescription = $db->value_select("SELECT metadescription FROM categories WHERE link='$url' UNION SELECT metadescription FROM products WHERE link='$url'");
+        $metadescription = $db->value_select("SELECT metadescription FROM news WHERE site_link = '$url'");
 
         if(!empty($metadescription))
             return $metadescription;

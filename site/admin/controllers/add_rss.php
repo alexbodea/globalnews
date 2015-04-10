@@ -17,6 +17,7 @@
         'active_menu'  => 'add_rss',
         'msg'          => $msg,
         'title_part'   => 'Adăugare rss',
-        'utils'        => $utils
+        'utils'        => $utils,
+        'slugs'        => get_slugs()
     ));
 ?>

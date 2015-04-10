@@ -14,7 +14,7 @@
     }
 
     $metakeywords = get_metakeywords($url);
-
+    
     if(empty($metakeywords)) {
         $metakeywords = $utils['default_metakeywords'];
     }

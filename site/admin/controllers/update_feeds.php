@@ -12,7 +12,12 @@
 
 	//update database with today's news with duplicate checking
 
-	$slugs = $db->array_select("SELECT id,slug FROM slugs WHERE timezone = '1'");
+	$slugs = $db->array_select("SELECT id,slug FROM slugs WHERE '$hour' = timezone OR 
+																'$hour' = ((timezone + 4) % 24) OR
+																'$hour' = ((timezone + 8) % 24) OR
+																'$hour' = ((timezone + 12) % 24)
+																");
+
 
 	foreach($slugs as $slug) {
 
@@ -49,8 +54,10 @@
 							$description = prepare_description($entry->description);
 
 							$site_link = prepare_link($title,$country_slug);
+							$metakeywords = prepare_metakeywords($description);
+							$metadescription = prepare_metadescription($description);
 
-							$sql = $db->execute("INSERT INTO news (country_id, author, title, description, site_link, link, pubdate) VALUES ('$country_id', '$author', '$title', '$description', '$site_link','$link', '$date')");
+							$sql = $db->execute("INSERT INTO news (country_id, author, title, description, site_link, link, pubdate, metadescription, metakeywords) VALUES ('$country_id', '$author', '$title', '$description', '$site_link','$link', '$date', '$metadescription', '$metakeywords')");
 					    }
 					}
 				}

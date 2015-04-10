@@ -16,9 +16,9 @@
     $utils['db_pass'] = 'coffee2news2015';
     $utils['db_database'] = 'news';
 
-    $utils['default_metakeywords'] = 'oradea,bihor,depozit,detergent,detergenti,produse,curatenie,cosmetice,online,ariel,coccolino,bonux,nivea,dove,lenor,silan,bref,colgate,adidas';
+    $utils['default_metakeywords'] = 'world news, world events, breaking news, news online, U.S. news, world news, developing story, eather, business, money, politics, law, technology, entertainment, education, travel, health, special reports';
 
-    $utils['default_metadescription'] = 'Comercializăm, la preţuri de depozit en-gros, ţigări, detergenţi şi produse de înaltă calitate pentru curăţenie şi igienă personală.';
+    $utils['default_metadescription'] = 'World news. We keep you up to date with your local news.';
 
     $utils['allowed_characters']['regex'] = 'ăĂâÂîÎșȘțȚ';
     $utils['allowed_characters']['table'] = array('ă' => 'a', 'Ă' => 'A', 'â' => 'a', 'Â' => 'A', 'î' => 'i', 'Î' => 'I', 'ș' => 's', 'Ș' => 'S', 'ț' => 't', 'Ț' => 'T');

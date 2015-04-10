@@ -41,6 +41,31 @@
     }
 
 
+    function prepare_metakeywords($string) {
+
+        $metakeywords = '';
+        $words = explode(' ', $string);
+        foreach ($words as $word) {
+            if(strlen($word > 3))
+                $metakeywords .= $word
+        }
+        $string = str_replace(".", "", $string);
+        $string = substr($string, 0, 130);
+        $string = normalize($string);
+        $string = strtolower($string);
+
+        return $string;
+    }
+
+
+    function prepare_metadescription($string) {
+
+        $string = substr($string, 0, 150);
+
+        return $string;
+    }
+
+
     function create_locales() {
 
         $db = new db();
