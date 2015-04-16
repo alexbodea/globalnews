@@ -4,7 +4,7 @@ class Db {
 
         protected static $connection;
 
-        public function connect() {    
+        public function connect() {
 
             if(!isset($connection)) {
 
@@ -68,7 +68,7 @@ class Db {
         }
 
         public function execute($query) {
-            
+
             $connection = $this -> connect();
             $result = $this -> query($query);
             if($result)

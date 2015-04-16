@@ -2,8 +2,9 @@
         <section>
             <button class="go_up" data-role="go_up"><i class="fa fa-arrow-up"></i> UP</button>
             <div class="social">
-                <a class="fa fa-facebook" href="https://www.facebook.com/coffee2news" title="Facebook  | Coffee 2 News" target="_blank"></a>
-                <a class="fa fa-google-plus" href="#" title="Google Plus  | Coffee 2 News" target="_blank"></a>
+                <a class="fa fa-facebook" href="https://www.facebook.com/coffee2news" title="Facebook  | Coffee 2 News" target="_blank" rel="nofollow"></a>
+                <!-- <a class="fa fa-google-plus" href="#" title="Google Plus  | Coffee 2 News" target="_blank" rel="publisher"></a> -->
+                <a class="fa fa-google-plus" href="https://plus.google.com/102102481780682446962" title="Google Plus  | Coffee 2 News" target="_blank" rel="publisher"></a>
             </div>
         </section>
 
@@ -27,12 +28,13 @@
         </section>
 
         <section class="copy row">
-            <div class="col-sm-6">
-                <p>Copyright © 2015 <a href="http://www.coffee2news.com" title="World news. We keep you up to date with your local news">www.coffee2news.com</a> All rights reserved.</p>
-                <p>Găzduit de <a class="digitalocean" href="https://www.digitalocean.com/?refcode=ec600cf09f66" target="_blank" title="Digital Ocean"></a></p>
+            <div class="col-xs-12 col-sm-6" itemscope itemtype="http://schema.org/LocalBusiness">
+                <p>Copyright &copy; 2015 <a itemprop="url" href="http://www.coffee2news.com/" title="World news. We keep you up to date with your local news">www.coffee2news.com</a> All rights reserved.</p>
+                <p>Găzduit de <a class="digitalocean" href="https://www.digitalocean.com/?refcode=e8a8c33ea600" target="_blank" title="Digital Ocean" rel="nofollow"></a></p>
             </div>
-            <div class="col-sm-6">
-                <p>Designed and Developed <span>in</span> <i title="România"></i> <span>by</span> <a href="http://www.teranacreative.com" title="Web Design with HTML5, CSS3 &amp; JS">Terana Creative</a></p>
+
+            <div class="col-xs-12 col-sm-6" itemscope itemtype="http://schema.org/WebSite">
+                <p>Designed and Developed <span>in</span> <i title="România"></i> <span>by</span> <a href="http://www.teranacreative.com" target="_blank" title="Web Design with HTML5, CSS3 &amp; JS" itemprop="creator">Terana Creative</a></p>
             </div>
         </section>
     </footer>
@@ -46,7 +48,7 @@
             <form action="#" method="post">
                 <input type="text" required pattern=".{5,}" placeholder="{{ translations['19'] }} (required)" />
                 <input type="email" required pattern=".{5,}" placeholder="{{ translations['20'] }} (required)" />
-                <textarea cols="30" rows="10" required pattern=".{10,2000}"  placeholder="{{ translations['21'] }}"></textarea>
+                <textarea cols="30" rows="10" required pattern=".{10,4000}"  placeholder="{{ translations['21'] }}"></textarea>
                 <button class="btn_submit">{{ translations['18'] }}</button>
             </form>
             <p class="success_text">{{ translations['22'] }}</p>
@@ -54,7 +56,7 @@
     </div>
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="{{ utils.active_theme }}/js/script.js"></script>
 </body>
