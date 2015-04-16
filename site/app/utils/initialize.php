@@ -2,7 +2,7 @@
 
     require_once (SYS_PATH . 'Twig/lib/Twig/Autoloader.php');
 
-    $_SESSION['language'] = $first;
+    $_SESSION['slug'] = $first;
 
     Twig_Autoloader::register();
 

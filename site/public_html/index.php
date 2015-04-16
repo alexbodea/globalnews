@@ -3,8 +3,15 @@
     include('../config.php');
     include(BASE_PATH . 'app/utils/functions.php');
 
-    if(!isset($_SESSION['language'])) {
-        $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    if(!isset($_SESSION['slug'])) {
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $_SESSION['slug'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            if($_SESSION['slug'] == 'en') {
+                $_SESSION['slug'] = 'us';
+            }
+        } else {
+            $_SESSION['slug'] = 'us';
+        }
     }
 
     $url  = $_SERVER['REQUEST_URI'];
@@ -14,12 +21,16 @@
     $second = isset($parts[2]) ? $parts[2] : false;
 
     if ($first == '') {
-        header('HTTP/1.1 301 Moved Permanently');
-        header('Location: /' . $_SESSION['language'] . '/');
+        header('Location: /' . $_SESSION['slug'] . '/');
     } elseif(is_article($url)) {
         include(BASE_PATH . 'app/controllers/article.php');
-    } elseif(is_slug($first)) {
-        include(BASE_PATH . 'app/controllers/index.php');
+    } elseif(is_slug($first) && empty($second)) {
+        if(substr($url, -1) == '/') {
+            include(BASE_PATH . 'app/controllers/index.php');
+        } else {
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: /' . $first . '/');
+        }
     }
 
 

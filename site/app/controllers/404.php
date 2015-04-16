@@ -11,4 +11,5 @@
         'data'  => $data,
     ));
     
+    session_destroy();
 ?>
